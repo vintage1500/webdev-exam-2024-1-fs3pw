@@ -477,4 +477,22 @@ td svg {
         display: block;
         font-size: 13px;
     }
+    #form-con {
+        padding: 5px 5px;
+    }
+    .name-con {
+        margin-right: 5px;
+    }
+    .label-block, .label-inline, #delivery-price, #reset-btn, #submit-btn {
+        font-size: 14px;
+    }
+    .btn-con {
+        width: 100%;
+    }
+    #reset-btn, #submit-btn {
+        width: 48%;
+    }
+    #total-price {
+        font-size: 16px;
+    }
 }

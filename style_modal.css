@@ -64,7 +64,20 @@
     display: block;
 }
 
+p {
+    word-break: break-all;
+}
 
-@media only all and (max-width: 700px) {
-    
+@media only all and (max-width: 500px) {
+    #modal-window-watch, #modal-window-delete, #modal-window-edit {
+        width: 400px;
+        font-size: 14px;
+    }
+}
+
+@media only all and (max-width: 400px) {
+    #modal-window-watch, #modal-window-delete, #modal-window-edit {
+        width: 350px;
+        font-size: 12px;
+    }
 }
