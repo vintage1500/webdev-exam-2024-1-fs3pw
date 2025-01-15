@@ -63,6 +63,10 @@ function watchOrder(order, totalPrice, names) {
     let email = document.body.querySelector(".modal-window-email");
     email.textContent = order.email;
 
+    let deliveryAddress = document.body
+        .querySelector(".modal-window-address");
+    deliveryAddress.textContent = formatDate(order.delivery_address);
+
     let deliveryDate = document.body
         .querySelector(".modal-window-delivery-date");
     deliveryDate.textContent = formatDate(order.delivery_date);
@@ -150,14 +154,14 @@ async function finalEditOrder(orderId) {
             return response.json();
         })
         .then(data => { 
-            addNotification("Заказ успешно обновлен!");
             console.log('Ответ сервера:', data);
             let modalWindow = document.getElementById("modal-window-edit");
             modalWindow.style.display = "none"; 
             const overlay = document.getElementById("overlay");
             overlay.style.display = "none";
             location.reload();
-        })
+            // addNotification("Заказ успешно обновлен!");
+        }) 
         .catch(error => {
             addNotification('Произошла ошибка при обновлении данных.');
             console.error('Ошибка:', error);
@@ -277,6 +281,9 @@ function renderOrder(orders) {
     }
 }
  
+function resetListOrder() {
+
+}
 
 async function loadOrder() {    
     const searchParams = new URLSearchParams({
