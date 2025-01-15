@@ -1,0 +1,70 @@
+#modal-window-watch, #modal-window-delete, #modal-window-edit {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px 20px 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    border: 2px #000 solid;
+    display: none;
+}
+
+.modal-window-main-title {
+    border-bottom: 2px  #000 solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-info { 
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    margin-top: 5px;
+    gap: 8px;
+}
+
+.btn-con-modal {
+    display: flex;
+    justify-content: end;
+    margin-right: 10px;
+    align-content: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+#ok-watch-btn, #delete-btn, #cancel-btn, #cancel-edit-btn, #save-btn{
+    border: 1px gray solid;
+    width: 100px;
+    height: 30px;
+    background-color: #fff;
+}
+
+
+#sure-delete {
+    margin-top: 10px;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    display: none;
+}
+  
+#overlay.show {
+    display: block;
+}
+
+
+@media only all and (max-width: 700px) {
+    
+}

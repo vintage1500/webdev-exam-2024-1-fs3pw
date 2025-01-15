@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <div class="header-logo">
+                <!-- <img src="#" alt="Logo"> -->
+                <p class="header-logo-text">Logo</p>
+            </div>
+        </a>
+        <div class="search-hide">
+            <input type="text" placeholder="Введите запрос" id="search-input">
+            <button id="search-btn" class="button">Найти</button>
+        </div>
+        <div class="boot-btn">
+            <a href="index.html"><i class="bi bi-list btn-icons-uni"></i></a>    
+            <a href="profile.html"><i class="bi bi-person-circle btn-icons-uni"></i></a>
+        </div>
+    </header>
+
+    <section id="text-notification">
+        <p id="text-notification-title">Текст сообщения</p>
+        <a href=""><i class="bi bi-x-lg" id="close-notification-btn"></i></a>
+    </section>
+
+    <main id="main-basket">
+        <h2 class="main-title">Корзина</h2>
+        <section class="main-shop-list">
+             
+        </section>
+        
+        <section id="empty-basket">
+            <h3>Ничего не выбрано</h3>
+            <p>Выберите товары <a href="index.html">здесь</a></p>
+        </section>
+
+        <h2 class="main-title">Оформление заказа</h2>
+
+        <section>
+            <form action="POST" id="form-con">
+                <div class="name-con">
+                    <div class="form-item">
+                        <label for="full_name" class="label-block">Имя</label>
+                        <input type="text" name="full_name" id="full_name" class="form-input" placeholder="Иванов Иван" required>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="phone" class="label-block">Номер телефона</label>
+                        <input type="text" name="phone" id="phone" class="form-input" placeholder="+74952230523" required>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="email" class="label-block">Email</label>
+                        <input type="email" name="email" id="email" class="form-input" placeholder="example@gmail.com" required>
+                    </div>
+    
+                    <div class="form-item form-item-info">
+                        <input type="checkbox" id="discount" name="subscribe">
+                        <label for="discount" class="label-inline">Подписаться на рассылку</label>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="comment" class="label-block">Комментарий</label>
+                        <textarea name="comment" id="comment" class="form-input"></textarea>
+                    </div>
+                </div>
+                <div class="address-con">
+                    <div class="form-item">
+                        <label for="delivery_address" class="label-block">Адрес доставки</label>
+                        <input type="text" name="delivery_address" id="delivery_address" class="form-input" placeholder="ул. Иванов, 25" required>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="delivery_date" class="label-block">Дата доставки</label>
+                        <input type="date" name="delivery_date" id="delivery_date" class="form-input" required>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="delivery_interval" class="label-block">Временной интервал доставки</label>
+                        <select name="delivery_interval" id="delivery_interval" class="form-input" required>
+                            <option value="08:00-12:00">08:00-12:00</option>
+                            <option value="12:00-14:00">12:00-14:00</option>
+                            <option value="14:00-18:00">14:00-18:00</option>
+                            <option value="18:00-22:00">18:00-22:00</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price-con">
+                        <p id="total-price">Итоговая стоимость: 6500 ₽</p>
+                        <p id="delivery-price">(cтоимость доставки 500 ₽)</p>
+                    </div>
+    
+                    <div class="btn-con">
+                        <button type="reset" class="button" id="reset-btn">Сбросить</button>
+                        <button type="submit" class="button" id="submit-btn">Отправить</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p id="footer-title">&#169; 2025 Название компании</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="submit.js"></script> 
+    <script type="module" src="basket.js"></script> 
+</body>
+</html>

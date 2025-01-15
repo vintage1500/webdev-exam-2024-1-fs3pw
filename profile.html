@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_modal.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <div class="header-logo">
+                <!-- <img src="#" alt="Logo"> -->
+                <p class="header-logo-text">Logo</p>
+            </div>
+        </a>
+        <div class="search-hide">
+            <input type="text" placeholder="Введите запрос" id="search-input">
+            <button id="search-btn" class="button">Найти</button>
+        </div>
+        <div class="boot-btn">
+            <a href="index.html"><i class="bi bi-list btn-icons-uni"></i></a>    
+            <a href="basket.html"><i class="bi bi-basket btn-icons-uni"></i></a>     
+        </div>
+    </header>
+
+    <section id="text-notification">
+        <p id="text-notification-title">Текст сообщения</p>
+        <a href=""><i class="bi bi-x-lg" id="close-notification-btn"></i></a>
+    </section>
+
+    <main id="main-basket">
+        <h2 class="main-title">Заказы</h2>
+        <section id="order-table">
+            <table>
+                <thead>
+                  <tr>
+                    <th>№</th>
+                    <th>Дата оформления</th>
+                    <th class="table-name">Состав заказа</th>
+                    <th>Стоимость</th>
+                    <th>Доставка</th>
+                    <th>Действия</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-table">
+                  <!-- JavaScript -->
+                </tbody>
+              </table>
+        </section>
+
+        
+        <div id="modal-window-watch">
+            <div class="modal-window-main-title">
+                <h4>Просмотр заказа</h4>
+                <a href=""><i class="bi bi-x-lg" id="close-modal-watch"></i></a>
+            </div>
+
+            <div class="order-info">
+                <p>Дата оформления</p>
+                <p class="modal-window-time"></p>
+                 
+                <p>Имя получателя</p>
+                <p class="modal-window-name"></p>
+    
+                <p>Номер телефона</p>
+                <p class="modal-window-phone"></p>
+                
+                <p>Email</p>
+                <p class="modal-window-email"></p>
+                
+                <p>Адрес доставки</p>
+                <p class="modal-window-address"></p>
+                
+                <p>Дата доставки</p>
+                <p class="modal-window-delivery-date"></p>
+
+                <p>Время доставки</p>
+                <p class="modal-window-delivery-time"></p>
+                
+                <p class="modal-window-title">Состав заказа</p>
+                <div class="modal-window-div modal-window-dishes">
+    
+                </div>
+    
+                <p>Стоимость</p>
+                <p class="modal-window-title modal-window-total-price"></p>
+    
+                <p class="modal-window-title">Комментарий</p>
+                <p class="modal-window-comment"></p>
+            </div>
+
+
+            <div class="btn-con-modal">
+                <button id="ok-watch-btn">ОК</button>
+            </div>
+        </div>
+
+        <div id="modal-window-edit">
+            <form action="" id="edit-form">
+                <div class="modal-window-main-title">
+                    <h4>Просмотр заказа</h4>
+                    <a href=""><i class="bi bi-x-lg" id="close-modal-edit"></i></a>
+                </div>
+    
+                <div class="order-info">
+                    <p>Дата оформления</p>
+                    <p class="modal-window-time-edit"></p>
+                     
+                    <p>Имя получателя</p>
+                    <input type="text" name="full_name" id="full_name" required>
+        
+                    <p>Номер телефона</p>
+                    <input type="text" name="phone" id="phone" required>
+                    
+                    <p>Email</p>
+                    <input type="email" name="email" id="email" required>
+                    
+                    <p>Адрес доставки</p>
+                    <input type="text" name="delivery_address" id="delivery_address" required>
+                    
+                    <p>Дата доставки</p>
+                    <input type="date" name="delivery_date" id="delivery_date" required>
+    
+                    <p>Время доставки</p>
+                    <select name="delivery_interval" id="delivery_interval" required>
+                        <option value="08:00-12:00">08:00-12:00</option>
+                        <option value="12:00-14:00">12:00-14:00</option>
+                        <option value="14:00-18:00">14:00-18:00</option>
+                        <option value="18:00-22:00">18:00-22:00</option>
+                    </select>
+                    
+                    <p class="modal-window-title">Состав заказа</p>
+                    <div class="modal-window-div modal-window-dishes-edit">
+        
+                    </div>
+        
+                    <p>Стоимость</p>
+                    <p class="modal-window-title modal-window-total-price-edit"></p>
+        
+                    <p class="modal-window-title">Комментарий</p>
+                    <textarea name="comment" id="comment" class="form-input-edit"></textarea>
+                </div>
+    
+    
+                <div class="btn-con-modal">
+                    <button id="cancel-edit-btn">Отмена</button>
+                    <button id="save-btn">Сохранить</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="modal-window-delete">
+            <div class="modal-window-main-title">
+                <h4>Удаление заказа</h4>
+                <a href=""><i class="bi bi-x-lg" id="close-modal-delete"></i></a>
+            </div> 
+            <p id="sure-delete">Вы уверены что хотите удалить заказ</p> 
+            <div class="btn-con-modal">
+                <button id="cancel-btn">Отмена</button>
+                <button id="delete-btn">Да</button>
+            </div>
+        </div>
+
+        <div id="overlay"></div>
+    </main>
+
+    <footer>
+        <p id="footer-title">&#169; 2025 Название компании</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="order_products.js"></script>
+    <script type="module" src="order.js"></script>
+</body>
+</html>
