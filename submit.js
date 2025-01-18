@@ -37,7 +37,7 @@ function resetAllOrder() {
     hideEmptyNotification.style.display = "block";        
 } 
 
-function sendDataToServer(formData) { 
+async function sendDataToServer(formData) { 
     fetch(`${API_URL}?api_key=${API_KEY}`, {
         method: 'POST',
         body: formData
@@ -59,10 +59,62 @@ function sendDataToServer(formData) {
         });
 }
 
+function calculateDeliveryPrice() {
+    const deliveryPriceElement = document.getElementById('delivery-price');
+    const totalPriceElement = document.getElementById('total-price');
+    const totalPriceText = totalPriceElement.textContent;
+    const totalPriceValue = parseInt(totalPriceText.match(/\d+/)[0], 10);
+    let deliveryPriceValue = document
+        .getElementById('delivery-price').textContent;
+    const deliveryPriceTotal = parseInt(deliveryPriceValue.match(/\d+/)[0], 10);
+    console.log(deliveryPriceTotal);
+    let deliveryPrice = 0;
+
+    const selectedDate = new Date(
+        document.getElementById('delivery_date').value);
+    const selectedInterval = document.getElementById('delivery_interval').value;
+
+    console.log(selectedDate.getDate());
+    
+    if (isNaN(selectedDate.getDate())) {
+        deliveryPriceElement
+            .innerHTML = "(стоимость доставки: 0 ₽)<br>выберите дату";
+        totalPriceElement
+            .textContent = `Итоговая стоимость: ${totalPriceValue} ₽`; 
+        return;
+    } 
+    const dayOfWeek = selectedDate.getDay();  
+    if ((dayOfWeek === 0 || dayOfWeek === 6) 
+        & (selectedInterval == '18:00-22:00')) { 
+        deliveryPrice += 500;
+    } else if (selectedInterval == '18:00-22:00') { 
+        deliveryPrice += 400;
+    } else {
+        deliveryPrice += 200;
+    }
+
+    if (deliveryPriceTotal != 0) {
+        deliveryPriceElement
+            .textContent = `(стоимость доставки: ${deliveryPrice } ₽)`;
+        totalPriceElement
+            .textContent = `Итоговая стоимость: ${totalPriceValue +
+            deliveryPrice - deliveryPriceTotal} ₽`; 
+    } else {
+        deliveryPriceElement
+            .textContent = `(стоимость доставки: ${deliveryPrice } ₽)`;
+        totalPriceElement
+            .textContent = `Итоговая стоимость: ${totalPriceValue +
+            deliveryPrice} ₽`; 
+    }
+    
+}
+
+
 document.addEventListener('DOMContentLoaded', () => { 
     const submitButton = document.querySelector('#submit-btn');
     const closeButton = document.querySelector('#close-notification-btn');
     const deliveryDateInput = document.querySelector('#delivery_date');
+    const deliveryIntervalSelect = document.getElementById('delivery_interval');
     const yesterdayDate = new Date();
     yesterdayDate.setDate(yesterdayDate .getDate() - 1);
  
@@ -120,7 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Отправка данных на сервер
             sendDataToServer(formData);
         }
-    });
+    }); 
+ 
+    deliveryDateInput.addEventListener('change', calculateDeliveryPrice);
+    deliveryIntervalSelect.addEventListener('change', calculateDeliveryPrice);
 
-    
+    calculateDeliveryPrice();
 });

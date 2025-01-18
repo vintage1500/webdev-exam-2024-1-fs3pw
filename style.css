@@ -28,9 +28,8 @@ header {
     flex-wrap: nowrap;
 }
 
-.header-logo {
-    border: 1px black solid;
-    height: 45px;
+.header-logo { 
+    height: 60px;
     width: 120px;
 }
 

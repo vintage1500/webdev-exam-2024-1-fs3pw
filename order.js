@@ -65,7 +65,7 @@ function watchOrder(order, totalPrice, names) {
 
     let deliveryAddress = document.body
         .querySelector(".modal-window-address");
-    deliveryAddress.textContent = formatDate(order.delivery_address);
+    deliveryAddress.textContent = order.delivery_address;
 
     let deliveryDate = document.body
         .querySelector(".modal-window-delivery-date");
@@ -159,8 +159,7 @@ async function finalEditOrder(orderId) {
             modalWindow.style.display = "none"; 
             const overlay = document.getElementById("overlay");
             overlay.style.display = "none";
-            location.reload();
-            // addNotification("Заказ успешно обновлен!");
+            location.reload(); 
         }) 
         .catch(error => {
             addNotification('Произошла ошибка при обновлении данных.');
